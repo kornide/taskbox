@@ -1,0 +1,34 @@
+<div class="list-item {{ task.state }}">
+  <label
+    [attr.aria-label]="'archiveTask-' + task.id"
+    for="checked-{{ task.id }}"
+    class="checkbox"
+  >
+    <input
+      type="checkbox"
+      disabled="true"
+      [checked]="task.state === 'TASK_ARCHIVED'"
+      name="checked-{{ task.id }}"
+      id="checked-{{ task.id }}"
+    />
+    <span (click)="onArchive(task.id)"></span>
+  </label>
+  <label [attr.aria-label]="task.title" class="title">
+    <input
+      type="text"
+      [value]="task.title"
+      readonly="true"
+      name="title-{{ task.id }}"
+      id="title-{{ task.id }}"
+      placeholder="Input title"
+    />
+  </label>
+  <button
+    *ngIf="task.state !== 'TASK_ARCHIVED'"
+    class="pin-button"
+    [attr.aria-label]="'pinTask-' + task.id"
+    (click)="onPin(task.id)"
+  >
+    <span class="icon-star"></span>
+  </button>
+</div>
