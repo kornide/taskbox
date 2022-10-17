@@ -391,7 +391,7 @@
         },
         {
             "name": "TaskComponent",
-            "id": "component-TaskComponent-10201ee1dd0ef2dba171e46d9ca949ce59df7399ba00687f0d93aea6d843c67ed81acad81170018f4c8e6c1f9dc962698c2a3ebfcf99d4e309c7d5af76261ad8",
+            "id": "component-TaskComponent-c5ae23f74b2b11db6ea0a8b94e295c9938fba77ee00eb83862023b17a4aeee230d4ca74f2e0d31d2c844b7c92c43a784c7954cdea854e39d47938ce062dda1a2",
             "file": "src/app/components/task/task.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -412,8 +412,8 @@
                     "name": "task",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 9,
-                    "type": "any",
+                    "line": 10,
+                    "type": "Task",
                     "decorators": []
                 }
             ],
@@ -423,7 +423,7 @@
                     "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 18,
                     "type": "EventEmitter"
                 },
                 {
@@ -431,12 +431,103 @@
                     "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "line": 14,
                     "type": "EventEmitter"
                 }
             ],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "onArchive",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nComponent method to trigger the onArchive event\n",
+                    "description": "<p>Component method to trigger the onArchive event</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 713,
+                                "end": 715,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "id"
+                            },
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "pos": 707,
+                                "end": 712,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>string</p>\n"
+                        }
+                    ]
+                },
+                {
+                    "name": "onPin",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nComponent method to trigger the onPin event\n",
+                    "description": "<p>Component method to trigger the onPin event</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 574,
+                                "end": 576,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "id"
+                            },
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "pos": 568,
+                                "end": 573,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>string</p>\n"
+                        }
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -444,7 +535,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'app-task',\n  templateUrl: './task.component.html',\n  styleUrls: ['./task.component.css'],\n})\nexport class TaskComponent {\n  @Input() task: any;\n\n  // tslint:disable-next-line: no-output-on-prefix\n  @Output()\n  onPinTask = new EventEmitter<Event>();\n\n  // tslint:disable-next-line: no-output-on-prefix\n  @Output()\n  onArchiveTask = new EventEmitter<Event>();\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { Task } from '../../models/task.model';\n\n@Component({\n  selector: 'app-task',\n  templateUrl: './task.component.html',\n  styleUrls: ['./task.component.css'],\n})\nexport class TaskComponent {\n  @Input() task: Task;\n\n  // tslint:disable-next-line: no-output-on-prefix\n  @Output()\n  onPinTask = new EventEmitter<Event>();\n\n  // tslint:disable-next-line: no-output-on-prefix\n  @Output()\n  onArchiveTask = new EventEmitter<Event>();\n\n  /**\n   * Component method to trigger the onPin event\n   * @param id string\n   */\n  onPin(id: any) {\n    this.onPinTask.emit(id);\n  }\n  /**\n   * Component method to trigger the onArchive event\n   * @param id string\n   */\n  onArchive(id: any) {\n    this.onArchiveTask.emit(id);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -453,19 +544,19 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"list-item\">\n  <label [attr.aria-label]=\"task.title + ''\">\n    <input type=\"text\" [value]=\"task.title\" readonly=\"true\" name=\"title\" />\n  </label>\n</div>\n"
+            "templateData": "<div class=\"list-item {{ task.state }}\">\n  <label\n    [attr.aria-label]=\"'archiveTask-' + task.id\"\n    for=\"checked-{{ task.id }}\"\n    class=\"checkbox\"\n  >\n    <input\n      type=\"checkbox\"\n      disabled=\"true\"\n      [checked]=\"task.state === 'TASK_ARCHIVED'\"\n      name=\"checked-{{ task.id }}\"\n      id=\"checked-{{ task.id }}\"\n    />\n    <span (click)=\"onArchive(task.id)\"></span>\n  </label>\n  <label [attr.aria-label]=\"task.title\" class=\"title\">\n    <input\n      type=\"text\"\n      [value]=\"task.title\"\n      readonly=\"true\"\n      name=\"title-{{ task.id }}\"\n      id=\"title-{{ task.id }}\"\n      placeholder=\"Input title\"\n    />\n  </label>\n  <button\n    *ngIf=\"task.state !== 'TASK_ARCHIVED'\"\n    class=\"pin-button\"\n    [attr.aria-label]=\"'pinTask-' + task.id\"\n    (click)=\"onPin(task.id)\"\n  >\n    <span class=\"icon-star\"></span>\n  </button>\n</div>\n"
         }
     ],
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-eade59e402124ae73a55098ce353e3ff64bd95b5813599451866b1c2c16326568c5f15b520566364808b0ff818c5e448a242296c92a044138384df8f65e8bee0",
+            "id": "module-AppModule-12f92b72c151640eb21de9ac64fc920b9be661eac9cc1b6dd2db1dbe2da44c4fd1fdb3eeaf8645b3aba2faf9cd3263460ec04d2478030c95ee0a8bfd4aea1e43",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { TaskComponent } from './components/task/task.component';\n\n@NgModule({\n  declarations: [AppComponent, TaskComponent],\n  imports: [BrowserModule],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { AppComponent } from './app.component';\nimport { TaskComponent } from './components/task/task.component';\n\n@NgModule({\n  declarations: [AppComponent, TaskComponent],\n  imports: [BrowserModule],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -891,7 +982,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 3,
+        "count": 4,
         "status": "low",
         "files": [
             {
@@ -908,9 +999,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "TaskComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/4",
-                "status": "low"
+                "coveragePercent": 33,
+                "coverageCount": "2/6",
+                "status": "medium"
             },
             {
                 "filePath": "src/app/components/task/task.stories.ts",
