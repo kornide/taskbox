@@ -1,0 +1,6 @@
+<app-task-list
+  *ngIf="tasks$ | async as tasks"
+  [tasks]="tasks"
+  (onArchiveTask)="archiveTask($event)"
+  (onPinTask)="pinTask($event)"
+></app-task-list>

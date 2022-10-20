@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Task } from '../../models/task.model';
+import { Task } from '../../../models/task.model';
 
 @Component({
   selector: 'app-task-list',
@@ -21,9 +21,9 @@ export class TaskListComponent {
 
   // tslint:disable-next-line: no-output-on-prefix
   @Output()
-  onPinTask = new EventEmitter<Event>();
+  onPinTask = new EventEmitter<string>();
 
   // tslint:disable-next-line: no-output-on-prefix
   @Output()
-  onArchiveTask = new EventEmitter<Event>();
+  onArchiveTask = new EventEmitter<string>();
 }
