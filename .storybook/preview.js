@@ -1,5 +1,18 @@
 import { setCompodocJson } from "@storybook/addon-docs/angular";
 import docJson from "../documentation.json";
+
+const allFields = docJson.components
+  ?.map((c) => [...(c.propertiesClass || []), ...(c.inputsClass || [])])
+  .flat();
+
+allFields.forEach((p) => {
+  if (p.type === "number") {
+    p.defaultValue = +p.defaultValue;
+  } else {
+    delete p.defaultValue;
+  }
+});
+
 setCompodocJson(docJson);
 
 export const parameters = {
@@ -11,4 +24,4 @@ export const parameters = {
     },
   },
   docs: { inlineStories: true },
-}
+};
