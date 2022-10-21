@@ -6,9 +6,11 @@ import { NgxsModule } from '@ngxs/store';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { TaskModule } from './components/task/task.module';
+import { InboxScreenComponent } from './components/inbox-screen/inbox-screen.component';
+import { InboxScreenWrapperComponent } from './components/inbox-screen-wrapper/inbox-screen-wrapper.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, InboxScreenComponent, InboxScreenWrapperComponent],
   imports: [
     BrowserModule,
     TaskModule,
