@@ -1206,7 +1206,7 @@
                     }
                 }
             },
-            "templateData": "<div class=\"list-items\">\n  <app-task\n    *ngFor=\"let task of tasksInOrder\"\n    [task]=\"task\"\n    (onArchiveTask)=\"onArchiveTask.emit($event)\"\n    (onPinTask)=\"onPinTask.emit($event)\"\n  >\n  </app-task>\n  <div *ngIf=\"!loading && tasksInOrder.length === 0\" class=\"wrapper-message\">\n    <span class=\"icon-check\"></span>\n    <p class=\"title-message\">You have no tasks</p>\n    <p class=\"subtitle-message\">Sit back and relax</p>\n  </div>\n  <div *ngIf=\"loading\">\n    <div *ngFor=\"let i of [1, 2, 3, 4, 5, 6]\" class=\"loading-item\">\n      <span class=\"glow-checkbox\"></span>\n      <span class=\"glow-text\">\n        <span>This text will not be shown</span>\n      </span>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"list-items\">\n  <ng-container *ngIf=\"!loading\">\n    <app-task\n      *ngFor=\"let task of tasksInOrder\"\n      [task]=\"task\"\n      (onArchiveTask)=\"onArchiveTask.emit($event)\"\n      (onPinTask)=\"onPinTask.emit($event)\"\n    >\n    </app-task>\n    <div *ngIf=\"tasksInOrder.length === 0\" class=\"wrapper-message\">\n      <span class=\"icon-check\"></span>\n      <p class=\"title-message\">You have no tasks</p>\n      <p class=\"subtitle-message\">Sit back and relax</p>\n    </div>\n  </ng-container>\n  <ng-container *ngIf=\"loading\">\n    <div *ngFor=\"let i of [1, 2, 3, 4, 5, 6]\" class=\"loading-item\">\n      <span class=\"glow-checkbox\"></span>\n      <span class=\"glow-text\">\n        <span>This text will not be shown</span>\n      </span>\n    </div>\n  </ng-container>\n</div>\n"
         },
         {
             "name": "TaskListWrapperComponent",
@@ -1543,21 +1543,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "Error",
@@ -1593,7 +1593,7 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
+                "file": "src/stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1603,16 +1603,6 @@
                 "name": "LoggedIn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1624,6 +1614,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "LoggedOut",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1683,21 +1683,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<Page>",
                 "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Header>",
+                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1922,18 +1922,6 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -1944,6 +1932,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -1998,38 +1998,6 @@
                     "defaultValue": "(args: Button) => ({\n  props: args,\n})"
                 }
             ],
-            "src/stories/Header.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Header>",
-                    "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-                }
-            ],
             "src/stories/Page.stories.ts": [
                 {
                     "name": "LoggedIn",
@@ -2060,6 +2028,38 @@
                     "deprecationMessage": "",
                     "type": "Story<Page>",
                     "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/stories/Header.stories.ts": [
+                {
+                    "name": "LoggedIn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "LoggedOut",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<Header>",
+                    "defaultValue": "(args: Header) => ({\n  props: args,\n})"
                 }
             ]
         },
