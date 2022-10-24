@@ -287,6 +287,7 @@ textarea {
   text-overflow: ellipsis;
   white-space: nowrap;
   flex: 1;
+  background: red;
 }
 
 .list-item input[type="text"] {
