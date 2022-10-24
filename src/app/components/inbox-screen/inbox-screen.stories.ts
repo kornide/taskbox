@@ -10,7 +10,6 @@ export default {
   component: InboxScreenComponent,
   decorators: [
     moduleMetadata({
-      declarations: [InboxScreenComponent],
       imports: [CommonModule, TaskModule, NgxsModule.forRoot([TaskState])],
     }),
   ],

@@ -14,7 +14,7 @@ export default {
   decorators: [
     moduleMetadata({
       // 👇 Imports both components to allow component composition with Storybook
-      declarations: [TaskListComponent, TaskComponent],
+      declarations: [TaskComponent],
       imports: [CommonModule],
     }),
     // 👇 Wraps our stories with a decorator
